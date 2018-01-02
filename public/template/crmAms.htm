@@ -1,0 +1,68 @@
+<h6>新增 customer</h6>
+<pre class="js-return"><code class="javascript">
+    var rows = [
+        getBase("post", {
+            description: "add customer",
+            api: "/crmAms/customerAjax/add",
+            data: {
+                email            : createEmail(),
+                first_name       : 'yyyyyy',
+                last_name        : 'zzzzzz',
+                wedding_date     : '2000-04-01',
+                billing_phone    : '',
+                bride_note       : '',
+                appointment_note : '',
+                gender           : 1
+            }
+        }),
+        getBase("post", {
+            description: "建立 customer 失敗, 因為 gender 性別 錯誤",
+            api: "/crmAms/customerAjax/add",
+            data: {
+                email            : 'test@hotmail.com',
+                first_name       : 'test',
+                last_name        : 'test',
+                wedding_date     : '2000-04-01',
+                billing_phone    : '',
+                bride_note       : '',
+                appointment_note : '',
+                gender           : 404
+            }
+        }),
+    ];
+    console.clear(); app.run(rows);
+
+    /**
+     *
+     */
+    function createEmail()
+    {
+        var currentdate = new Date();
+        var datetime =
+                currentdate.getFullYear() + "_"
+                + (currentdate.getMonth()+1)  + "_"
+                + currentdate.getDate() + "."
+                + currentdate.getHours() + ""
+                + currentdate.getMinutes() + ""
+                + currentdate.getSeconds();
+        return 'just.test.' + datetime + '@local.com';
+    }
+</code></pre>
+
+<h6>取消 appointment</h6>
+<pre class="js-return"><code class="javascript">
+    const cancelAppointmentId = 1;
+    const rows = [
+        getBase("post", {
+            description: "cancel appointment to log",
+            api: "/crmAms/appointmentAjax/cancel",
+            data: {
+                appointment: {
+                    id: cancelAppointmentId,
+                    cancel_reason: 0
+                }
+            }
+        }),
+    ];
+    console.clear(); app.run(rows);
+</code></pre>

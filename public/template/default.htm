@@ -1,0 +1,59 @@
+<style>
+    .is_textarea {
+        font-size: 10px;
+        width: 100%;
+        height: 500px;
+        border: 3px solid #cccccc;
+        padding: 5px;
+        font-family: Hack, "Source Code Pro", Inconsolata, GulimChe, Tahoma, sans-serif;
+    }
+</style>
+<script>
+    var runCode = function()
+    {
+        var sourceCode = $(".is_textarea").val();
+
+        // run ES6 javascript code
+        //babel.run(sourceCode)
+
+        // run ES5 javascript code
+        var run = new Function(sourceCode);
+        run();
+    };
+
+    $(function() {
+        //
+        $(".is_textarea").on('keydown', function(e){
+            if (e.keyCode === 13 && e.ctrlKey) {
+                runCode();
+                e.preventDefault();
+            }
+        });
+
+        // 利用這種方式讓 游標 移至 最後面
+        $('textarea.is_textarea').focus();
+        var value = $('textarea.is_textarea').val();
+        $('textarea.is_textarea').val('');
+        $('textarea.is_textarea').val(value);
+
+        $('textarea.is_textarea').click();
+    });
+</script>
+
+<p>
+    <textarea class="is_textarea">
+let api = 
+  "/crmAms/dailyAppointmentsSetAjax?store_id=1&date=2017-12-31"
+;
+let rows = [
+    getBase("get", {
+        description: "dailyAppointmentsSet",
+        api: api,
+        data: {}
+    }),
+];
+console.clear(); app.run(rows);
+</textarea>
+    <br />
+    <input type="button" value="Ctrl + Enter to run code" onClick="runCode()" />
+</p>

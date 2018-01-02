@@ -1,0 +1,9 @@
+body {
+    font-size: 10px;
+}
+#content {
+    min-height: 100px;
+}
+pre, code {
+    font-family: Hack, "Source Code Pro", Inconsolata, GulimChe, Tahoma, sans-serif;
+}
