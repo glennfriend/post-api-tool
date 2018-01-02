@@ -34,13 +34,12 @@ const _ =
     everyPageLoad: function()
     {
         // 給所有的 .js-return 一個編號
-        var boxMaxId = -1;
+        let boxMaxId = -1;
         const boxes = document.querySelectorAll(".js-return");
         boxes.forEach(function(element) {
             boxMaxId++;
-            //element.dataset.boxId = boxMaxId;
             element.id = "box_" + boxMaxId;
-            console.log(element);
+            //console.log(element);
         });
 
         // clean all pre code "\n" and space
@@ -104,7 +103,7 @@ const _ =
                     document.execCommand('copy');
                 }
                 catch (err) {
-                    console.log('複製內容到剪貼布 失敗 !');
+                    console.log('Fail: 複製內容到剪貼布 失敗 !');
                 }
                 copyTextarea.style.display = "none";
             });
@@ -131,11 +130,11 @@ const pageLoader =
             tag = tag.substr(1);
         }
 
-        var file = template + tag + ".htm";
+        const file = template + tag + ".htm";
         $('#content').load(file, function(response, status, xhr){
             if (status=2000) {
                 $(".js-load").each(function(){
-                    if ( $(this).attr('href') == "#"+tag ) {
+                    if ( $(this).attr('href') == "#" + tag ) {
                         $(this).addClass("active");
                     }
                     else {

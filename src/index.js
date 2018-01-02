@@ -1,13 +1,15 @@
-import pageLoader from './common/pageLoader.js';
-//import defaultPage from './page/default.js';
-import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
-import hljs from 'highlight.js/lib/highlight.js';
 import 'highlight.js/styles/ir-black.css';
 import './main.css';
+import pageLoader from './common/pageLoader.js';
+import $ from 'jquery';
+import hljs from 'highlight.js/lib/highlight.js';
 
 
+/**
+ *
+ */
 var getBase = function(type, params)
 {
     let base = {
@@ -21,7 +23,7 @@ var getBase = function(type, params)
     // auto set
     switch (type) {
         case "post":
-            base.contentType = "application/json;charset=UTF-8";
+            base.contentType = "application/json; charset=UTF-8";
             break;
         case "get":
             break;
@@ -79,16 +81,18 @@ const app = (function()
                 beforeSend: function(xhr) {}
             })
             .done(function(obj, resultType) {
+                let color = 'color:green';
                 if (obj && obj.error) {
                     // console.log('%c' + JSON.stringify(obj.error.message) ,'color:red');
-                    console.log('%cError' ,'color:red');
+                    // console.log('%cError' ,'color:red');
+                    color = 'color:red';
                 }
                 else if (obj) {
-                    console.log('%c' + resultType ,'color:green');
+                    // console.log('%c' + resultType ,'color:green');
                 }
 
-                // console.log(obj)
-                console.log(JSON.stringify(obj, null, 2));
+                // console.log(obj);
+                console.log('%c' + JSON.stringify(obj, null, 2), color);
                 app.run(rows, index+1);
             })
             .fail(function(obj, resultType) {
@@ -103,6 +107,7 @@ const app = (function()
 
     return obj;
 })();
+
 
 
 
