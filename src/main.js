@@ -28,7 +28,6 @@ const main = {
             $(this).children('.js-button').on('click', function(){
                 var run = new Function(sourceCode);
                 run();
-                // babel.run(sourceCode)
             });
         });
 

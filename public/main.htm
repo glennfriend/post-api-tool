@@ -17,10 +17,11 @@
             if (!location.hash) {
                 location.hash = 'default';
             }
+
             $(window).on('hashchange', function() {
-                main.load(location.hash, template);
+                pageLoader.load(location.hash, template);
             });
-            main.load(location.hash, template);
+            pageLoader.load(location.hash, template);
 
         });
     </script>

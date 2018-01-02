@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
+    "//": "source code to color library",
     "highlight.js": "^9.12.0",
     "jquery": "^3.2.1",
     "bootstrap": "twbs/bootstrap#v4-dev"

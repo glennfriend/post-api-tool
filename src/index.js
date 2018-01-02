@@ -1,4 +1,4 @@
-//import domUtil from './common/domUtility.js';
+import pageLoader from './common/pageLoader.js';
 //import defaultPage from './page/default.js';
 import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -6,7 +6,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.js';
 import hljs from 'highlight.js/lib/highlight.js';
 import 'highlight.js/styles/ir-black.css';
 import './main.css';
-import main from './main.js';
 
 
 var getBase = function(type, params)
@@ -39,6 +38,9 @@ var getBase = function(type, params)
 };
 
 
+/**
+ * app 處理資料送出的
+ */
 const app = (function()
 {
     // --------------------------------------------------------------------------------
@@ -105,8 +107,12 @@ const app = (function()
 
 
 
+
+// --------------------------------------------------------------------------------
+// to public
+// --------------------------------------------------------------------------------
 window.$ = $;
-window.main = main;
+window.pageLoader = pageLoader;
 window.app = app;
 window.getBase = getBase;
 window.hljs = hljs;
