@@ -7,20 +7,20 @@ yarn dev
 
 ### Allow-Control-Allow-Origin
 - https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
-- ³]©w "localhost" ¤Î¥i
+- è¨­å®š "localhost" åŠå¯
 
-### ëĞ¹L Allow-Control-Allow-Origin µLªk¸ó¹L port ªº¼È®É¤è®×
+### é¶é Allow-Control-Allow-Origin ç„¡æ³•è·¨é port çš„æš«æ™‚æ–¹æ¡ˆ
 ```
-°²³]Àô¹Ò
+å‡è¨­ç’°å¢ƒ
     project path     : https://localhost/page/
     webpack dev path : https://localhost:8080/
 
-¦b§A¶}µoªº­¶­±
+åœ¨ä½ é–‹ç™¼çš„é é¢
     https://localhost/page/
 
-¥[¤J¥H¤Uºô§}¤Î¥i
+åŠ å…¥ä»¥ä¸‹ç¶²å€åŠå¯
   <script src="http://localhost:35729/livereload.js"></script>
-  <script src="https://localhost:8080/dist/app.js"></script>
+  <script src="https://localhost:8080/public/dist/app.js"></script>
 ```
 
 

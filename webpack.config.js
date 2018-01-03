@@ -2,7 +2,7 @@ const webpack           = require("webpack");
 const LiveReload        = require("webpack-livereload-plugin");
 const UglifyJsPlugin    = require('uglifyjs-webpack-plugin');
 const config            = require("./config.js");
-const buildPath         = "./dist";
+const buildPath         = "./public/dist";
 
 // --------------------------------------------------------------------------------
 //  start
