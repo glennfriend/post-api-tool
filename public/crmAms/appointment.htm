@@ -1,0 +1,20 @@
+<h6>取消 appointment</h6>
+<pre class="js-return"><code class="javascript">
+    const cancelAppointmentId = 1;
+    const rows = [
+        getBase("post", {
+            description: "cancel appointment to log",
+            api: "/crmAms/appointmentAjax/cancel",
+            data: {
+                appointment: {
+                    id: cancelAppointmentId,
+                    cancel_reason: 0
+                }
+            }
+        }),
+    ];
+    console.clear(); app.run(rows);
+</code></pre>
+
+
+

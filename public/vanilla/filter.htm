@@ -1,0 +1,21 @@
+<h4>filter</h4>
+<h6>建立一個經指定之函式運算後，由原陣列中通過該函式檢驗之元素所構成的新陣列</h6>
+<pre class="js-return"><code class="javascript">
+    let words = [
+        'spray',
+        'limit',
+        10.2,
+        'exuberant',
+        'destruction',
+        20,
+    ];
+
+    const result = words.filter(function(value) {
+        const type = Object.prototype.toString.call(value);
+        if ('[object Number]' === type) {
+            return true;
+        }
+    });
+
+    console.log(`number: `, result);
+</code></pre>

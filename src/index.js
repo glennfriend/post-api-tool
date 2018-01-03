@@ -109,8 +109,26 @@ const app = (function()
 })();
 
 
+// --------------------------------------------------------------------------------
+// init
+// --------------------------------------------------------------------------------
+$(function() {
 
+    pageLoader.menuLoad();
 
+    if (! location.hash) {
+        location.hash = 'console/console';
+    }
+    if (-1 === location.hash.indexOf('/')) {
+        return;
+    }
+
+    $(window).on('hashchange', function() {
+        pageLoader.load(location.hash);
+    });
+    pageLoader.load(location.hash);
+
+});
 
 
 // --------------------------------------------------------------------------------

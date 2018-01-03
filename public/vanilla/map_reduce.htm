@@ -1,0 +1,29 @@
+<h4>map</h4>
+<h6>建立一個新的陣列, 內容為 "原陣列的每一個元素, 經由回呼函式運算後, 所回傳的結果之集合"</h6>
+<pre class="js-return"><code class="javascript">
+    var numbers = [1, 5, 10, 2];
+    var result = numbers.map(function(x) {
+       return x * 2;
+    });
+
+    // => [2, 10, 20, 4]
+    console.log(result);
+</code></pre>
+
+
+<h4>reduce</h4>
+<h6>將一個累加器及陣列中每項元素（由左至右）傳入回呼函式, 將陣列簡化為單一值</h6>
+<pre class="js-return"><code class="javascript">
+    const array1 = [1, 2, 3, 4];
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+    // 1 + 2 + 3 + 4
+    // => 10
+    console.log(array1.reduce(reducer));
+
+    // 5 + 1 + 2 + 3 + 4
+    // => 15
+    console.log(array1.reduce(reducer, 5));
+
+
+</code></pre>

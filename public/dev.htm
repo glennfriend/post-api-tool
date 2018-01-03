@@ -5,26 +5,6 @@
     <title>Example Page</title>
     <script src="http://sb.tw:35729/livereload.js"></script>
     <script src="https://sb.tw:8080/dist/app.js"></script>
-    <script>
-        $(function() {
-
-            // $.ajaxSetup ({
-            //     cache: false
-            // });
-
-            var template = 'template/';
-
-            if (!location.hash) {
-                location.hash = 'default';
-            }
-
-            $(window).on('hashchange', function() {
-                pageLoader.load(location.hash, template);
-            });
-            pageLoader.load(location.hash, template);
-
-        });
-    </script>
 </head>
 <body>
 
@@ -37,10 +17,8 @@
         <a class="navbar-brand" href="javascript:void(0)"></a>
 
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="">Home</a>
-                </li>
+            <ul class="navbar-nav mr-auto" id="menu">
+                <!-- render -->
             </ul>
         </div>
     </nav>
@@ -49,15 +27,12 @@
 
         <div class="row">
             <div class="col-md-2">
-                <div class="list-group">
-                    <a class="list-group-item list-group-item-action js-load" href="#default"               > default</a>
-                    <a class="list-group-item list-group-item-action js-load" href="#array"                 > Array</a>
-                    <a class="list-group-item list-group-item-action js-load" href="#crmAms"                > crmAms</a>
-                    <a class="list-group-item list-group-item-action js-load" href="#dailyAppointmentsSet"  > dailyAppointmentsSet</a>
+                <div class="list-group" id="sidebar">
+                    <!-- render -->
                 </div>
             </div>
             <div class="col-md-10" id="content">
-                <p>&nbsp;</p>
+                <!-- render -->
             </div>
         </div>
 
