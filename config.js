@@ -6,7 +6,7 @@ catch (err) {
     console.log("============================");
     console.log(err);
     console.log("============================");
-    return;
+    // return;
 }
 
 var scheme = 'http';
@@ -19,4 +19,5 @@ module.exports = {
     'is_ssl':   data.dev_server_ssl,
     'host_url': scheme + '://' + data.dev_server_host + ':' + data.dev_server_port,
     'host':                      data.dev_server_host + ':' + data.dev_server_port,
+    'headers': data.headers
 };

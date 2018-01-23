@@ -1,0 +1,9 @@
+{
+    "app_name": "post-api-tool",
+    "dev_server_ssl": true,
+    "dev_server_host": "sb.tw",
+    "dev_server_port": "8080",
+    "headers": {
+        "Authorization": ""
+    }
+}

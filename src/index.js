@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.js';
 import 'highlight.js/styles/ir-black.css';
 import './main.css';
 import pageLoader from './common/pageLoader.js';
+import config from '../config.js';
 import $ from 'jquery';
 import hljs from 'highlight.js/lib/highlight.js';
 
@@ -48,9 +49,7 @@ const app = (function()
     // --------------------------------------------------------------------------------
     //  private
     // --------------------------------------------------------------------------------
-    var config = {
-        basePath: '//' + location.hostname + '/wms/admin',
-    };
+    var basePath = '//' + location.hostname + '/wms/admin';
 
     // --------------------------------------------------------------------------------
     //  public
@@ -71,14 +70,31 @@ const app = (function()
                 return;
             }
 
+            let url = '';
+            if (row.api.substr(0,4) === 'http') {
+                url = row.api;
+            }
+            else {
+                url = basePath + row.api;
+            }
+
             $.ajax({
                 cache: false,
                 type: row.method,
-                url: config.basePath + row.api,
+                url: url,
                 data: JSON.stringify(row.data),
                 contentType: row.contentType,
                 dataType: 'json',
-                beforeSend: function(xhr) {}
+                beforeSend: function(xhr) {
+                    if (! config.headers) {
+                        return;
+                    }
+
+                    if (config.headers.Authorization !== '') {
+                        xhr.setRequestHeader("Authorization", config.headers.Authorization);
+                    }
+
+                }
             })
             .done(function(obj, resultType) {
                 let color = 'color:green';
@@ -92,6 +108,7 @@ const app = (function()
                 }
 
                 // console.log(obj);
+                // console.table(obj);
                 console.log('%c' + JSON.stringify(obj, null, 2), color);
                 app.run(rows, index+1);
             })
