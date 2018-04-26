@@ -4,9 +4,10 @@
 cp config.json.template config.json
 vi config.json
 
-
 yarn
 yarn dev
+
+vi public/dev.htm
 ```
 
 ### Allow-Control-Allow-Origin
