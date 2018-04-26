@@ -1,6 +1,10 @@
 
 ### Install & run
 ```sh
+cp config.json.template config.json
+vi config.json
+
+
 yarn
 yarn dev
 ```
